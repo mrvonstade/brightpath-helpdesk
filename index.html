@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrightPath Help Desk</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    h1 { font-size: 1.4rem; }
+    label { display: block; margin: .6rem 0 .2rem; font-size: .9rem; }
+    input[type=text], input[type=password], textarea { width: 100%; padding: .5rem; box-sizing: border-box; font: inherit; }
+    textarea { min-height: 70px; }
+    .row { display: flex; gap: 1rem; flex-wrap: wrap; margin: .6rem 0; font-size: .9rem; }
+    .row label { display: inline; margin: 0; }
+    button { padding: .6rem 1.2rem; font: inherit; cursor: pointer; }
+    details { margin: .8rem 0; font-size: .9rem; }
+    .result { white-space: pre-wrap; margin-top: 1rem; padding: .8rem; border-radius: 6px; }
+    .ok { background: #eef7ee; } .missing { background: #fff7e6; }
+    .error { background: #fdecec; } .loading { background: #f2f2f2; }
+    .sources { font-size: .85rem; color: #555; margin: .6rem 0 0; }
+    .hint { font-size: .8rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>BrightPath Help Desk</h1>
+  <p class="hint">Answers only from the three BrightPath help documents (fictional).</p>
+
+  <form id="form">
+    <label for="question">Your question</label>
+    <textarea id="question" placeholder="e.g. When is the coaching session?"></textarea>
+
+    <label for="apiKey">Gemini API key</label>
+    <input id="apiKey" type="password" autocomplete="off" placeholder="Not saved to code; kept only in this browser tab" />
+
+    <details>
+      <summary>Settings &amp; tests</summary>
+      <label for="model">Model</label>
+      <input id="model" type="text" />
+      <div class="row">
+        <span><input id="fail" type="checkbox" /> <label for="fail">Simulate API failure</label></span>
+        <span><input id="mock" type="checkbox" /> <label for="mock">Mock mode (no AI)</label></span>
+      </div>
+    </details>
+
+    <button id="ask" type="submit">Ask</button>
+  </form>
+
+  <div id="result" class="result"></div>
+
+  <script src="docs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
