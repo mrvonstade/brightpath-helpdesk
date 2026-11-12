@@ -1,7 +1,7 @@
 // BrightPath help desk — answers ONLY from DOCS (docs.js) using Gemini.
 // No build step, no server. The API key is entered at runtime and never committed.
 
-const MODEL_DEFAULT = "gemini-2.5-flash";
+const MODEL_DEFAULT = "gemini-3.6-flash";
 const TIMEOUT_MS = 15000;
 const NOT_FOUND =
   "I can't find that in the BrightPath help documents. Please contact support@brightpath.example (Monday to Friday, 09:00–17:00 UTC).";
