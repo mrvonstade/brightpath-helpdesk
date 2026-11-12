@@ -2,7 +2,7 @@
 
 A small AI help desk that answers questions using **only** the three supplied BrightPath Learn documents (fictional), shows which document supports each answer, and says so when the answer isn't there.
 
-**Live demo:** _add GitHub Pages link here_
+**Live demo:** https://mrvonstade.github.io/brightpath-helpdesk/
 
 ## Run it
 
@@ -17,7 +17,7 @@ The key is typed in at runtime and kept only in that browser tab (`sessionStorag
 ## How it works
 
 - `docs.js`: the three documents, each with an id (`doc1`–`doc3`).
-- `app.js`: sends the question plus all three documents to Gemini (`gemini-2.5-flash`, temperature 0) with strict rules: answer only from the documents, otherwise return `found: false`, never ask for a password, and reply in JSON `{found, answer, sources}`.
+- `app.js`: sends the question plus all three documents to Gemini (`gemini-3.6-flash`, temperature 0) with strict rules: answer only from the documents, otherwise return `found: false`, never ask for a password, and reply in JSON `{found, answer, sources}`.
 - **The model's output is checked, not trusted.** The JSON is parsed, and any source id that isn't a real document is dropped. If nothing valid remains, the app shows a fixed "not in the documents, contact support" message instead of the model's text.
 - The documents are tiny, so they all go in the prompt. With hundreds of documents I'd switch to retrieval (embeddings + top-k search).
 
@@ -48,4 +48,6 @@ See [TESTS.md](TESTS.md).
 
 ## Tools used
 
-See the written walkthrough in the submission.
+- Claude (Anthropic) as a pair programmer for the code and README. I directed the design, deployed it and ran and checked every test.
+- Google Gemini API (`gemini-3.6-flash`, free tier) as the language model.
+- GitHub Pages for hosting. Plain HTML, CSS and JavaScript with no libraries or frameworks.
